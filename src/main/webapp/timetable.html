@@ -1,0 +1,168 @@
+<!--<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Time Table</title>
+</head>
+<body>
+<p id="demo"></p>
+<form class="form-signin" id="timetable">
+    <h2 style="margin-bottom: 20px">Time table</h2>
+
+    <button class="btn btn-lg btn-primary btn-block" id="submit-button" type="submit">
+        Get time table
+    </button>
+<label id="sample2"></label>
+    <label id="sample3"></label>
+</form>
+
+<h2>Print PDF</h2>
+
+<iframe
+        src='timetable.html' id='myFrame'
+        frameborder='0' style='border:0;'
+        width='300' height='300'>
+</iframe>
+<p>
+    <input type="button" id="bt" onclick="print()" value="Print PDF" />
+</p>
+</body>
+
+<script>
+    let print = () => {
+        let objFra = document.getElementById('myFrame');
+        objFra.contentWindow.focus();
+        objFra.contentWindow.print();
+    }
+
+</script>
+</html>
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/timetable.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js" ></script>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Convert JSON Data to HTML Table</title>
+    <style>
+        th, td, p, input {
+            font:14px Verdana;
+        }
+        table, th, td
+        {
+            border: solid 1px #DDD;
+            border-collapse: collapse;
+            padding: 2px 3px;
+            text-align: center;
+        }
+        th {
+            font-weight:bold;
+        }
+    </style>
+    <link rel="stylesheet" href="assets/styles/plugin.sass">
+    <link rel="stylesheet" href="assets/styles/demo.css">
+    <link rel="stylesheet" href="assets/styles/timetablejs.css">
+
+</head>
+<body style="background-color: #ffffff">
+
+<form class="form-signin" id="timetable">
+    <h2 style="margin-bottom: 20px"></h2>
+
+    <button class="btn btn-lg btn-danger btn-block" style="color: #EC6A5E;" id="submit-button" type="submit">
+        FETCH TIMETABLE
+    </button>
+</form><hr>
+<input type="button" style="color: #EC6A5E;" onclick="CreateTableFromJSON()" value="VIEW MY TIMETABLE" />
+<!--<p id="showData"></p>-->
+<div class="timetable"></div>
+</body>
+<script>
+    function CreateTableFromJSON()
+    {
+        let data=JSON.parse(localStorage.getItem("data"));
+        let timetable=new Timetable();
+        timetable.setScope(9,18);
+        timetable.addLocations(['monday','tuesday','wednesday','thursday','friday','saturday']);
+
+        let col = [];
+        for (let i = 0; i < data.length; i++) {
+            for (let key in data[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+        let cn,cd,ct;
+        for (let i = 0; i < data.length; i++) {
+
+                    cn=data[i][col[1]];
+                    cd=data[i][col[2]];
+                    ct=data[i][col[4]];
+            timetable.addEvent(cn,cd,new Date(2020,1,1,ct,0),new Date(2020,1,1,ct+1,0));
+
+        }
+
+        let renderer=new Timetable.Renderer(timetable);
+        renderer.draw('.timetable');
+    }
+</script>
+<!--
+<script>
+    function CreateTableFromJSON() {
+
+        let data=JSON.parse(localStorage.getItem("data"));
+
+
+        console.log(data);
+
+        // EXTRACT VALUE FOR HTML HEADER.
+
+        let col = [];
+        for (let i = 0; i < data.length; i++) {
+            for (let key in data[i]) {
+                if (col.indexOf(key) === -1) {
+                    col.push(key);
+                }
+            }
+        }
+        let table = document.createElement("table");
+
+        // CREATE HTML TABLE HEADER ROW USING THE EXTRACTED HEADERS ABOVE.
+
+        let tr = table.insertRow(-1);                   // TABLE ROW.
+
+        for (let i = 0; i < col.length; i++) {
+            if(i!=0 && i!=3) {
+                let th = document.createElement("th");      // TABLE HEADER.
+                th.innerHTML = col[i];
+                tr.appendChild(th);
+            }
+        }
+
+        // ADD JSON DATA TO THE TABLE AS ROWS.
+        for (let i = 0; i < data.length; i++) {
+
+            tr = table.insertRow(-1);
+
+            for (let j = 0; j < col.length; j++) {
+                if(j!=0 && j!=3) {
+                    let tabCell = tr.insertCell(-1);
+                    tabCell.innerHTML = data[i][col[j]];
+                }
+            }
+        }
+
+        // FINALLY ADD THE NEWLY CREATED TABLE WITH JSON DATA TO A CONTAINER.
+        let divContainer = document.getElementById("showData");
+        divContainer.innerHTML = "";
+        divContainer.appendChild(table);
+    }
+    </script>-->
+<script src="assets/js/timetable.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/scripts/timetable.js"></script>
+</html>
