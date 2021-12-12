@@ -15,9 +15,7 @@ public class Users implements Serializable {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @ManyToMany(fetch= FetchType.EAGER)
-    @JoinTable(name = "User_Blog", joinColumns = {@JoinColumn(name = "user_id")},
-            inverseJoinColumns = {@JoinColumn(name = "blog_id")})
+
     private List<Blogs> blogs;
 
     public Users() {

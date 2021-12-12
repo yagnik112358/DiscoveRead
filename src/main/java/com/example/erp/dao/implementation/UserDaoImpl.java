@@ -40,6 +40,7 @@ public class UserDaoImpl implements UserDao {
             transaction.commit();
             return true;
         } catch (HibernateException exception) {
+            System.out.print("Error");
             System.out.print(exception.getLocalizedMessage());
             return false;
         }

@@ -9,7 +9,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;
 
-@Path("students")
+@Path("users")
 public class UsersController {
     UserService userService = new UserService();
     BlogService blogService =  new BlogService();

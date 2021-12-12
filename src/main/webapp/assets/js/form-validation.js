@@ -1,22 +1,20 @@
-let student_form = document.getElementById('student-validation');
+let user_form = document.getElementById('student-validation');
 let course_form = document.getElementById('course-validation');
 window.onload = fetch_courses;
 
-student_form.addEventListener('submit', async (e) => {
+user_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (student_form.checkValidity() === true) {
         console.log();
-        let response = await fetch('api/students/register', {
+        let response = await fetch('api/users/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
             },
             body: JSON.stringify({
-                first_name: document.getElementById('first_name').value,
-                last_name: document.getElementById('last_name').value,
-                courses: [{'course_id':document.getElementById('courses1').value},
-                    {'course_id':document.getElementById('courses2').value}],
+                name: document.getElementById('name').value,
+
                 email: document.getElementById('email').value,
             })
         }).then(
@@ -36,7 +34,7 @@ student_form.addEventListener('submit', async (e) => {
             }
         );
     } else {
-        student_form.classList.add('was-validated');
+        user_form.classList.add('was-validated');
     }
 });
 /*

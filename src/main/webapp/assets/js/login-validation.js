@@ -5,7 +5,7 @@ login_form.addEventListener('submit', async (e) => {
     if (login_form.checkValidity() === true) {
         document.getElementById("submit-button").style.display = "none";
         document.getElementById("spinner-button").style.display = "block";
-        let response = await fetch('api/students/login', {
+        let response = await fetch('api/users/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8'
