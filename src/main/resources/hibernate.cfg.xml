@@ -7,10 +7,10 @@
         <property name="connection.url">jdbc:mysql://localhost:3306/sdp?createDatabaseIfNotExist=true</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
          <property name="connection.username">yagnik</property>
-        <property name="connection.password">"pass"</property>
+        <property name="connection.password">Yagnik#3346</property>
 
         <!-- DB schema will be updated if needed -->
-        <property name="hibernate.hbm2ddl.auto">create</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="show_sql">true</property>
         <mapping class="com.example.erp.bean.Users" />
         <mapping class="com.example.erp.bean.Blogs" />

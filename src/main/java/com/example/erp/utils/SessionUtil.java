@@ -14,12 +14,14 @@ public class SessionUtil {
             configuration.configure();
 
             ourSessionFactory = configuration.buildSessionFactory();
+
         } catch (Throwable ex) {
             throw new ExceptionInInitializerError(ex);
         }
     }
 
     public static Session getSession() throws HibernateException {
+
         return ourSessionFactory.openSession();
     }
 }

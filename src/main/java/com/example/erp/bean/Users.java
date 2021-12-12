@@ -16,7 +16,7 @@ public class Users implements Serializable {
     private String email;
 
 
-    private List<Blogs> blogs;
+//    private List<Blogs> blogs;
 
     public Users() {
     }
@@ -45,12 +45,12 @@ public void setName(String name){this.name=name;}
         this.user_id = user_id;
     }
 
-    @JsonbTransient
+    /*@JsonbTransient
     public List<Blogs> getBlogs() {
         return blogs;
     }
 
     public void setBlogs(List<Blogs> blogs) {
         this.blogs = blogs;
-    }
+    }*/
 }
