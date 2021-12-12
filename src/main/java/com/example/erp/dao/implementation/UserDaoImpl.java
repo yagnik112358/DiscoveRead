@@ -35,9 +35,20 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public boolean registerUser(Users user) {
-        try (Session session = SessionUtil.getSession()) {
+        System.out.println(user.getEmail()+"Dao1");
+        Session session = SessionUtil.getSession();
+        System.out.println(user.getEmail()+"Dao2");
+        Transaction transaction = session.beginTransaction();
+        System.out.println(user.getEmail()+"Dao3");
+        session.save(user);
+        System.out.println(user.getEmail()+"Dao4");
+        transaction.commit();
+        System.out.println(user.getEmail()+"Dao5");
+        return true;
+
+        /*try (Session session = SessionUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
-            System.out.println();
+            System.out.println(user.getEmail()+"Dao");
             session.save(user);
             transaction.commit();
             return true;
@@ -45,7 +56,7 @@ public class UserDaoImpl implements UserDao {
             System.out.print("Error");
             System.out.print(exception.getLocalizedMessage());
             return false;
-        }
+        }*/
     }
 
 
