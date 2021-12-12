@@ -14,7 +14,7 @@ public class Blogs implements Serializable {
     private String description;
 
 
-    @ManyToMany(mappedBy = "blogs")
+
     private List<Users> users;
 
     public Blogs() {

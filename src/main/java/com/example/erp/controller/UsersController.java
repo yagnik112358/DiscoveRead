@@ -20,7 +20,7 @@ public class UsersController {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response registerUser(Users user) throws URISyntaxException {
-        System.out.println();
+        System.out.println(user.getName());
 
         {
 

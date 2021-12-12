@@ -1,12 +1,13 @@
-let user_form = document.getElementById('student-validation');
+let user_form = document.getElementById('user-validation');
 let course_form = document.getElementById('course-validation');
 window.onload = fetch_courses;
 
 user_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (student_form.checkValidity() === true) {
-        console.log();
+    if (1) {
+        console.log("YES");
+        console.log(document.getElementById('name'));
         let response = await fetch('api/users/register', {
             method: 'POST',
             headers: {

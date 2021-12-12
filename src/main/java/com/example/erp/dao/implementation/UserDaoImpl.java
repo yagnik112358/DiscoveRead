@@ -36,6 +36,7 @@ public class UserDaoImpl implements UserDao {
     public boolean registerUser(Users user) {
         try (Session session = SessionUtil.getSession()) {
             Transaction transaction = session.beginTransaction();
+            System.out.println();
             session.save(user);
             transaction.commit();
             return true;
