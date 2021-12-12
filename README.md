@@ -1,4 +1,5 @@
-# lab5resthibernate
+A webapp for demonstrating use of design patterns.
+
 REST API request and responses to hibernate controllers using jersey.
 
 Eclipse Jersey is a REST framework that provides a JAX-RS (JSR-370) implementation.
