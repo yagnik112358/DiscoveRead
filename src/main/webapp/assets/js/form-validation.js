@@ -1,13 +1,12 @@
 let user_form = document.getElementById('user-validation');
 let course_form = document.getElementById('course-validation');
-window.onload = fetch_courses;
+//window.onload = fetch_courses;
 
 user_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
-    if (1) {
-        console.log("YES");
-        console.log(document.getElementById('name'));
+    if (user_form.checkValidity() === true) {
+        console.log();
         let response = await fetch('api/users/register', {
             method: 'POST',
             headers: {
@@ -27,7 +26,7 @@ user_form.addEventListener('submit', async (e) => {
                 } else {
                     document.getElementById("login-alert").style.display = "none";
                     document.getElementById("login-success").style.display = "block";
-                    document.getElementById("student-validation").reset();
+                    document.getElementById("user-validation").reset();
                     setTimeout(function (){
                         location.href="index.html";
                     },2000);
