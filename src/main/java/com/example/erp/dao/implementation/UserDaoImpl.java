@@ -32,7 +32,18 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
-
+    @Override
+    public boolean registerUser(Users user) {
+        try (Session session = SessionUtil.getSession()) {
+            Transaction transaction = session.beginTransaction();
+            session.save(user);
+            transaction.commit();
+            return true;
+        } catch (HibernateException exception) {
+            System.out.print(exception.getLocalizedMessage());
+            return false;
+        }
+    }
 
 
 

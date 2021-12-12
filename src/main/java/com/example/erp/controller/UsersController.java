@@ -16,6 +16,27 @@ public class UsersController {
 
 
     @POST
+    @Path("/register")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response registerUser(Users user) throws URISyntaxException {
+        System.out.println();
+
+        {
+
+            if(userService.registerUser(user)){
+                return Response.ok().build();
+            }else{
+                return Response.status(203).build();
+            }
+        }
+
+
+    }
+
+
+
+    @POST
     @Path("/login")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
