@@ -6,8 +6,8 @@ user_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
     if (user_form.checkValidity() === true) {
-        console.log("YES");
-        console.log(document.getElementById('name'));
+        //console.log("YES");
+        //console.log(document.getElementById('name'));
         let response = await fetch('api/users/register', {
             method: 'POST',
             headers: {

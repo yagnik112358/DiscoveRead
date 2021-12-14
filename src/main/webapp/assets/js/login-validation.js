@@ -24,7 +24,7 @@ login_form.addEventListener('submit', async (e) => {
             //sessionStorage.setItem('id', data["student_id"]);
 
             localStorage.setItem("email",document.getElementById("email").value);
-            location.href="sample.html";
+            location.href="home.html";
         }
         else{
             document.getElementById("submit-button").style.display = "block";
