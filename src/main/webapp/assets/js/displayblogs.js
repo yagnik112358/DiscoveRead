@@ -6,7 +6,7 @@ async function fetch_blogs() {
          location.href = "dashboard.html";
          return;
      }*/
-    let response = await fetch("api/blogs/get");
+    let response = await fetch("api/blogs/getBlogs");
     let blogs = await response.json(); // read response body and parse as JSON
     console.log(blogs);
     // let courses_option1 = document.getElementById('courses1');

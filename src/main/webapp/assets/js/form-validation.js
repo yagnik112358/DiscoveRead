@@ -1,6 +1,6 @@
 let user_form = document.getElementById('user-validation');
-let course_form = document.getElementById('course-validation');
-window.onload = fetch_courses;
+// let course_form = document.getElementById('course-validation');
+// window.onload = fetch_courses;
 
 user_form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -88,11 +88,11 @@ course_form.onsubmit = async (e) => {
     }
 };
 */
-async function fetch_courses() {
-   /* if (!sessionStorage.getItem('id')) {
-        location.href = "dashboard.html";
-        return;
-    }*/
+/*async function fetch_courses() {
+    // if (!sessionStorage.getItem('id')) {
+    //     location.href = "dashboard.html";
+    //     return;
+    // }
     let response = await fetch("api/courses/get");
     let courses = await response.json(); // read response body and parse as JSON
     console.log(courses);
@@ -111,3 +111,4 @@ async function fetch_courses() {
     }
 
 }
+*/

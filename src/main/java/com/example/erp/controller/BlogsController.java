@@ -9,6 +9,7 @@ import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;
+import java.util.List;
 
 import com.example.erp.utils.SessionUtil;
 import org.hibernate.Session;
@@ -26,16 +27,18 @@ public class BlogsController {
     public Response registerBlog(Blogs blog) throws URISyntaxException {
         System.out.println(blog.getDescription()+"controller");
         Session session = SessionUtil.getSession();
-        System.out.println("dsd"+blog.getUserid()+"dsd");
-        {
 
-            if(blogService.registerBlog(blog)){
+//        blog.setBlog_id(session.);
+        System.out.println("dsd"+blog.getUserid()+"dsd");
+
+            if(blogService.registerBlog(blog))
+            {
                 System.out.println(blog.getDescription()+"controller2");
                 return Response.ok().build();
             }else{
                 return Response.status(203).build();
             }
-        }
+
 
 
     }
@@ -56,6 +59,29 @@ public class BlogsController {
         return Response.ok().entity(result).build();
     }
 
+    @GET
+    @Path("/getBlogs")
+    @Produces(MediaType.TEXT_PLAIN)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public Response displayBlogs(Blogs blog) throws URISyntaxException {
+//        System.out.println(blog.getDescription()+"controller");
+        Session session = SessionUtil.getSession();
+//        System.out.println("dsd"+blog.getUserid()+"dsd");
+        {
 
+            List<Blogs> blogs = blogService.displayBlogs();
+            if(blogs!=null){
+
+
+                System.out.println(blogs);
+
+                return Response.ok().build();
+            }else{
+                return Response.status(203).build();
+            }
+        }
+
+
+    }
 
 }
