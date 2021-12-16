@@ -5,6 +5,7 @@ let blog_form = document.getElementById('blog-validation');
 blog_form.addEventListener('submit', async (e) => {
     e.preventDefault();
     e.stopPropagation();
+    let uID;
     if (blog_form.checkValidity() === true) {
         console.log("YES");
         console.log(document.getElementById('name').value);
@@ -17,9 +18,8 @@ blog_form.addEventListener('submit', async (e) => {
             },
             body: JSON.stringify({
                 name: document.getElementById('name').value,
-
                 description: document.getElementById('description').value,
-                //userid:sessionStorage.getItem("userid"),
+                // userid: window.sessionStorage.getItem("userID"),
             })
         }).then(
             response => {
@@ -31,9 +31,9 @@ blog_form.addEventListener('submit', async (e) => {
                     document.getElementById("login-alert").style.display = "none";
                     document.getElementById("login-success").style.display = "block";
                     document.getElementById("user-validation").reset();
-                    setTimeout(function (){
-                        location.href="index.html";
-                    },2000);
+                    setTimeout(function () {
+                        location.href = "index.html";
+                    }, 2000);
                 }
             }
         );

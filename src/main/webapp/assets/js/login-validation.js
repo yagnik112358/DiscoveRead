@@ -28,7 +28,7 @@ login_form.addEventListener('submit', async (e) => {
             document.getElementById("submit-button").style.display = "block";
             document.getElementById("spinner-button").style.display = "none";
 
-            //sessionStorage.setItem('userid', data["userid"]);
+            window.sessionStorage.setItem('userID', data['userid']);
 
             localStorage.setItem("email",document.getElementById("email").value);
             location.href="home.html";
