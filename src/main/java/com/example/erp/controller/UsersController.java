@@ -20,12 +20,12 @@ public class UsersController {
     @Produces(MediaType.TEXT_PLAIN)
     @Consumes(MediaType.APPLICATION_JSON)
     public Response registerUser(Users user) throws URISyntaxException {
-        System.out.println(user.getName()+"controller");
+        //System.out.println(user.getName()+"controller");
 
         {
 
             if(userService.registerUser(user)){
-                System.out.println(user.getName()+"controller2");
+                //System.out.println(user.getName()+"controller2");
                 return Response.ok().build();
             }else{
                 return Response.status(203).build();

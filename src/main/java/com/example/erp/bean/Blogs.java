@@ -6,14 +6,14 @@ import java.io.Serializable;
 import java.util.List;
 
 @Entity
-@Table(name = "blogs")
+@Table(name = "Blogs")
 public class Blogs implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer blog_id;
     private String name;
     private String description;
-
+    private Integer userid;
 
 
 //    private List<Users> users;
@@ -49,7 +49,8 @@ public Integer getBlog_id()
         this.description = description;
     }
 
-
+    public Integer getUserid(){return userid;}
+    public void setUserid(Integer id){this.userid=id;}
 
   /*  @JsonbTransient
     public List<Users> getUsers() {

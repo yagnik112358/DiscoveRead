@@ -19,6 +19,7 @@ blog_form.addEventListener('submit', async (e) => {
                 name: document.getElementById('name').value,
 
                 description: document.getElementById('description').value,
+                //userid:sessionStorage.getItem("userid"),
             })
         }).then(
             response => {

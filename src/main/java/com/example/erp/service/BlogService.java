@@ -6,7 +6,7 @@ import com.example.erp.dao.implementation.BlogDaoImpl;
 
 public class BlogService {
     BlogDao blogDao = new BlogDaoImpl();
-    public boolean registerCourse(Blogs blog){
+    public boolean registerBlog(Blogs blog){
         return blogDao.registerBlog(blog);
     }
 

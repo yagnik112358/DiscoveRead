@@ -15,13 +15,20 @@ login_form.addEventListener('submit', async (e) => {
             })
         });
         let result = await response;
+        console.log("NO1");
         console.log(response);
+        console.log("NO2");
         if(result['status'] === 200){
             let data = response.json();
+            console.log("NO3");
+            console.log(data);
+            console.log("NO4");
+
+
             document.getElementById("submit-button").style.display = "block";
             document.getElementById("spinner-button").style.display = "none";
 
-            //sessionStorage.setItem('id', data["student_id"]);
+            //sessionStorage.setItem('userid', data["userid"]);
 
             localStorage.setItem("email",document.getElementById("email").value);
             location.href="home.html";

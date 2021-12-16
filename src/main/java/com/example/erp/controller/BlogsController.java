@@ -10,6 +10,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.net.URISyntaxException;
 
+import com.example.erp.utils.SessionUtil;
+import org.hibernate.Session;
+
 @Path("blogs")
 public class BlogsController {
 
@@ -22,7 +25,8 @@ public class BlogsController {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response registerBlog(Blogs blog) throws URISyntaxException {
         System.out.println(blog.getDescription()+"controller");
-
+        Session session = SessionUtil.getSession();
+        System.out.println("dsd"+blog.getUserid()+"dsd");
         {
 
             if(blogService.registerBlog(blog)){

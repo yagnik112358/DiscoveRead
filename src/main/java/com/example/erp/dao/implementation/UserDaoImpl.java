@@ -21,8 +21,19 @@ public class UserDaoImpl implements UserDao {
             query.setParameter("email", user.getEmail());
             System.out.println("email verified");
 
+            Query query2 = session.createQuery("select user_id from Users where email=:email");
+            query2.setParameter("email", user.getEmail());
+
+            for(final Object fetch2: query2.list())
+            {
+                session.setProperty("userid",fetch2);
+                //System.out.println(fetch2);
+            }
+
+
             for(final Object fetch: query.list())
             {
+
                 return (Users) fetch;
             }
 
